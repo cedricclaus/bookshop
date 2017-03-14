@@ -3,6 +3,7 @@ import {ActivatedRoute} from "@angular/router";
 import {CatalogService} from "../../core/services/catalog.service";
 import {Book} from "../../core/model/book.model";
 import {Subscription} from "rxjs";
+import "rxjs/add/operator/switchMap"
 
 @Component({
   selector: 'app-catalog-book',
@@ -13,22 +14,22 @@ export class CatalogBookComponent implements OnInit, OnDestroy {
 
   book : Book;
 
-  paramsSunscription : Subscription;
-  bookSubscription : Subscription;
+  subscription : Subscription;
 
   constructor(private route : ActivatedRoute, private catalog : CatalogService) { }
 
+
+
   ngOnInit() {
-   this.paramsSunscription =  this.route.params.subscribe(
-     params => {
-       this.bookSubscription && this.bookSubscription.unsubscribe();
-       this.bookSubscription = this.catalog.getBook(params['id']).subscribe(
-         book => this.book = book
-       )
-  })}
+   this.subscription = this.route.params
+     .switchMap(params => this.catalog.getBook(params["id"]))
+     .subscribe(book => this.book=book);
+  }
 
 
   ngOnDestroy(): void {
-    this.paramsSunscription && this.paramsSunscription.unsubscribe();
+    this.subscription && this.subscription.unsubscribe();
   }
+
+
 }
