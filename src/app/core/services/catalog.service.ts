@@ -6,7 +6,8 @@ import {Book} from "../model/book.model";
 
 
 
-const URL = 'https://api.mongolab.com/api/1/databases/sfbooks/collections/sfbooks/?apiKey=d3qvB8ldYFW2KSynHRediqLuBLP8JA8i';
+const URL = 'https://api.mongolab.com/api/1/databases/sfbooks/collections/sfbooks/';
+const KEY = '?apiKey=d3qvB8ldYFW2KSynHRediqLuBLP8JA8i'
 
 @Injectable()
 export class CatalogService {
@@ -15,6 +16,11 @@ export class CatalogService {
   constructor(private http:Http) { }
 
   getList() :Observable<Book[]>{
-    return this.http.get(URL).map(response =>  response.json());
+    return this.http.get(URL+ KEY).map(response =>  response.json());
+  }
+
+
+  getBook(id:string) : Observable<Book>{
+    return this.http.get(URL+ id +KEY).map(response =>  response.json());
   }
 }
