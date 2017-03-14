@@ -11,10 +11,10 @@ export class CatalogListComponent implements OnInit {
 
   constructor(private catalogService : CatalogService) { }
 
-  books : Book[];
+  books$;
 
   ngOnInit() {
-
+   this.books$ = this.catalogService.getList();
   }
 
 }

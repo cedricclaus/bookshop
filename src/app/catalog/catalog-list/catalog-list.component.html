@@ -1,3 +1,25 @@
-<p>
-  catalog-list works!
-</p>
+<table>
+  <thead>
+  <tr>
+    <th></th>
+    <th></th>
+    <th>Titre</th>
+    <th>Auteur</th>
+    <th>Prix</th>
+    <th>Note</th>
+    <th></th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let book of books$ | async;  let i=index">
+    <td>{{i}}</td>
+    <td><img [src]="book.image"/> </td>
+    <td [textContent]= "book.title"></td>
+    <td [textContent]= "book.author"></td>
+    <td [textContent] = "book.price | currency:'EUR':true" class="right"></td>
+    <td class="right" [textContent]= "book.rating"></td>
+    <td><button >Ajouter au panier</button></td>
+  </tr>
+  </tbody>
+</table>
