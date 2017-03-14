@@ -4,6 +4,7 @@ import {CatalogService} from "../../core/services/catalog.service";
 import {Book} from "../../core/model/book.model";
 import {Subscription} from "rxjs";
 import "rxjs/add/operator/switchMap"
+import "rxjs/add/operator/do"
 import {Title} from "@angular/platform-browser";
 
 @Component({
@@ -24,8 +25,8 @@ export class CatalogBookComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
    this.subscription = this.route.params
-     .switchMap(params => this.catalog.getBook(params["id"]))
-     .subscribe(book => {this.book=book;this.title.setTitle("Livre :" + book.title)});
+     .switchMap(params => this.catalog.getBook(params["id"])).do(book => this.title.setTitle("Livre : " + book.title) )
+     .subscribe(book => this.book=book);
   }
 
 
