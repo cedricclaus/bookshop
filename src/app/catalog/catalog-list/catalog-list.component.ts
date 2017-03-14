@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CatalogService} from "../../core/services/catalog.service";
+import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-catalog-list',
@@ -8,12 +9,14 @@ import {CatalogService} from "../../core/services/catalog.service";
 })
 export class CatalogListComponent implements OnInit {
 
-  constructor(private catalogService : CatalogService) { }
+  constructor(private catalogService : CatalogService,
+  private title:Title) { }
 
   books$;
 
   ngOnInit() {
    this.books$ = this.catalogService.getList();
+   this.title.setTitle("Catalogue des livres");
   }
 
 }
