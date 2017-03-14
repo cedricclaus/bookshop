@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import {CatalogModule} from "./catalog/catalog.module";
 import {ServicesModule} from "./core/services/services.module";
+import {AppRoutingModule} from "./app-routing.module";
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import {ServicesModule} from "./core/services/services.module";
     FormsModule,
     HttpModule,
     CatalogModule,
-    ServicesModule
+    ServicesModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
