@@ -14,7 +14,7 @@
   <tbody>
   <tr *ngFor="let book of books$ | async;  let i=index">
     <td>{{i}}</td>
-    <td><img [src]="book.image"/> </td>
+    <td> <a [routerLink]="['/catalog/book/', book._id.$oid ]"><img [src]="book.image"/></a> </td>
     <td [textContent]= "book.title"></td>
     <td [textContent]= "book.author"></td>
     <td [textContent] = "book.price | currency:'EUR':true" class="right"></td>
