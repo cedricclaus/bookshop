@@ -27,6 +27,10 @@ export class CartService {
 
   }
 
+  isEmpty() : boolean{
+    return this.rows.length == 0;
+  }
+
 
 
 }

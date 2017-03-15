@@ -1,4 +1,8 @@
-<table>
+<h2>Votre panier</h2>
+<p *ngIf="cart.isEmpty()">
+  Le panier est vide
+</p>
+<table *ngIf="!cart.isEmpty()">
   <thead>
   <tr>
     <th></th>
