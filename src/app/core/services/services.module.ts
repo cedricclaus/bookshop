@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {CatalogService} from "./catalog.service";
-import {CartService} from "../service/cart.service";
+import {CartService} from "./cart.service";
 
 @NgModule({
   imports: [

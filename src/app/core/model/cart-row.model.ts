@@ -2,10 +2,11 @@ import {Book} from "./book.model";
 /**
  * Created by ccc on 15-Mar-17.
  */
-export interface CartRow{
+export class CartRow{
 
-  book:Book;
-  quantity : number;
+
+
+  constructor(public book:Book, public quantity:number){};
 
 
 }

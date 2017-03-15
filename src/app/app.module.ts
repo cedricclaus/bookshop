@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import {CatalogModule} from "./catalog/catalog.module";
 import {ServicesModule} from "./core/services/services.module";
 import {AppRoutingModule} from "./app-routing.module";
+import {CartModule} from "./cart/cart.module";
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import {AppRoutingModule} from "./app-routing.module";
     HttpModule,
     CatalogModule,
     ServicesModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CartModule
   ],
   providers: [],
   bootstrap: [AppComponent]
