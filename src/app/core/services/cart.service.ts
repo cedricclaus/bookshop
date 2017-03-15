@@ -13,9 +13,13 @@ export class CartService {
   }
 
   add(book:Book, quantity:number = 1){
-    this.rows.push(new CartRow(book,quantity));
+    let found = this.rows.filter(row => row.book.equals(book))[0]
+    if(found){
+      found.quantity++;
+    }else{
+      this.rows.push(new CartRow(book,quantity));
+    }
     this.router.navigate(['/cart/content']);
-
   }
 
   total(){
