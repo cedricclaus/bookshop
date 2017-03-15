@@ -35,6 +35,12 @@ export class CartService {
     return this.rows.length == 0;
   }
 
+  size() : number{
+    return this.rows.map(row => row.quantity).reduce((total,value)=> total+value,0);
+  }
+
+
+
 
 
 }
