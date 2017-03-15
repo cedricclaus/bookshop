@@ -16,11 +16,14 @@ export class CatalogService {
   constructor(private http:Http) { }
 
   getList() :Observable<Book[]>{
-    return this.http.get(URL+ KEY).map(response =>  response.json());
+    return this.http.get(URL+ KEY)
+      .map(response =>  response.json())
+      .map(jsonBooks => jsonBooks.map(jsonBook => new Book(jsonBook)) );
   }
 
 
   getBook(id:string) : Observable<Book>{
-    return this.http.get(URL+ id +KEY).map(response =>  response.json());
+    return this.http.get(URL+ id +KEY)
+      .map(response =>  response.json()).map(jsonBook => new Book(jsonBook));
   }
 }
