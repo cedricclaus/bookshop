@@ -10,7 +10,8 @@ const routes: Routes = [
     component: CartRootComponent,
     children : [
       { path : 'content', component : CartContentComponent },
-      { path : 'order', component : CartOrderComponent }
+      { path : 'order', component : CartOrderComponent },
+      { path : '', redirectTo:'content',pathMatch:'full' }
     ]
   }
 ];
