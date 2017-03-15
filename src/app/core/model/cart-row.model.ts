@@ -8,5 +8,8 @@ export class CartRow{
 
   constructor(public book:Book, public quantity:number){};
 
+  amount(){
+    return this.book.price * this.quantity;
+  }
 
 }

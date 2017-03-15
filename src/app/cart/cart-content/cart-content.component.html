@@ -1,4 +1,34 @@
-<p>
-  cart-content works!
-</p>
+<table>
+  <thead>
+  <tr>
+    <th></th>
+    <th>Titre</th>
+    <th>Auteur</th>
+    <th>Prix unitaire HT</th>
+    <th>Quantité</th>
+    <th>Montant</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let row of cart.rows">
+    <td><img [src]="row.book.image"></td>
+    <td [textContent]= "row.book.title"></td>
+    <td [textContent]= "row.book.author"></td>
+    <td [textContent] = "row.book.price | currency:'EUR':true" class="right"></td>
+    <td class="right"><input type="number" [(ngModel)]="row.quantity">
+    </td>
+    <td class="right" [textContent] = "row.amount() | currency:'EUR':true"></td>
+    <td><button (click)="cart.remove(row)" >Supprimer</button></td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="4">Total</td>
+    <td class="right" [textContent] = "cart.total() | currency:'EUR':true">???</td>
+    <td></td>
+  </tr>
+  </tfoot>
+</table>
+
 

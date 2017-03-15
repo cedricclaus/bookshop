@@ -18,6 +18,15 @@ export class CartService {
 
   }
 
+  total(){
+    return this.rows.map(row => row.amount()).reduce((total,value)=> total+value,0);
+  }
+
+  remove(row:CartRow){
+    this.rows = this.rows.filter(r => r!=row);
+
+  }
+
 
 
 }
