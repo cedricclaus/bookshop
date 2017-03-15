@@ -21,8 +21,8 @@ import {CartModule} from "./cart/cart.module";
     HttpModule,
     CatalogModule,
     ServicesModule,
-    AppRoutingModule,
-    CartModule
+    AppRoutingModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

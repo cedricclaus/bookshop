@@ -6,7 +6,7 @@ import {CartOrderComponent} from "./cart-order/cart-order.component";
 
 const routes: Routes = [
   {
-    path: 'cart',
+    path: '',
     component: CartRootComponent,
     children : [
       { path : 'content', component : CartContentComponent },

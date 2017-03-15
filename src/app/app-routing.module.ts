@@ -2,10 +2,10 @@
  * Created by ccc on 14-Mar-17.
  */
 import {NgModule} from "@angular/core";
-import {RouterModule} from "@angular/router";
+import {RouterModule,  Routes} from "@angular/router";
 
-const routes = [
-
+const routes :Routes= [
+  {path:'cart',  loadChildren:'app/cart/cart.module#CartModule'},
   {path: '', redirectTo: 'catalog', pathMatch: 'full'}
 ]
 
