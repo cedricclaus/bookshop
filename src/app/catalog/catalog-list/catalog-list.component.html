@@ -19,7 +19,7 @@
     <td [textContent]= "book.author"></td>
     <td [textContent] = "book.price | currency:'EUR':true" class="right"></td>
     <td class="right" [textContent]= "book.rating"></td>
-    <td><button (click)="buy(book)" >Ajouter au panier</button></td>
+    <td><button (click)="actionService.buyBook(book)" >Ajouter au panier</button></td>
   </tr>
   </tbody>
 </table>

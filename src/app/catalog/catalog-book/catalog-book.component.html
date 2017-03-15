@@ -28,6 +28,10 @@
     <th>Description</th>
     <td [innerHTML] = "book.description"></td>
   </tr>
+  <tr>
+    <th></th>
+    <td><button (click)="actionService.buyBook(book)" >Ajouter au panier</button></td>
+  </tr>
 
 </table>
 

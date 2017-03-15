@@ -6,6 +6,7 @@ import {Subscription} from "rxjs";
 import "rxjs/add/operator/switchMap"
 import "rxjs/add/operator/do"
 import {Title} from "@angular/platform-browser";
+import {ActionService} from "../../core/services/action.service";
 
 @Component({
   selector: 'app-catalog-book',
@@ -19,7 +20,7 @@ export class CatalogBookComponent implements OnInit, OnDestroy {
   subscription : Subscription;
 
   constructor(private route : ActivatedRoute
-    , private catalog : CatalogService, private title:Title) { }
+    , private catalog : CatalogService, private title:Title, public actionService : ActionService) { }
 
 
 
@@ -33,6 +34,8 @@ export class CatalogBookComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.subscription && this.subscription.unsubscribe();
   }
+
+
 
 
 }
