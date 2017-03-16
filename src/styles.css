@@ -1,7 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 /* You can add global styles to this file, and also import other style files */
 
+input.ng-invalid.ng-touched,
+form.submitted input.ng-invalid{
+  border:2px solid red;
+}
 
+.error{
+  color:darkred;
+}
 
 .right {
   text-align: right;

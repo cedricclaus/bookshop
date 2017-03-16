@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {NgForm, NgModel} from "@angular/forms";
 
 @Component({
   selector: 'app-cart-order',
@@ -7,7 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartOrderComponent implements OnInit {
 
+  @ViewChild('form') form : NgForm;
+  @ViewChild('last') last : NgModel;
+
   constructor() { }
+
+  data = {
+    identity : {},
+    shipping:{},
+    billing:{}
+  }
+
+  log(){
+    console.log(this.form);
+    console.log(this.last);
+  }
 
   ngOnInit() {
   }
