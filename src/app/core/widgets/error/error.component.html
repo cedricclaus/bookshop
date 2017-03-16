@@ -1,0 +1,8 @@
+<span class="error"
+      *ngIf="control.invalid
+&& (control.touched || form?.submitted)">
+      <span *ngIf="control.hasError('required')">Mandatory</span>
+      <span *ngIf="control.hasError('minlength')">Need {{control.errors.minlength.requiredLength}}</span>
+      <span *ngIf="control.hasError('pattern')">pas le bon pattern ({{control.errors.pattern.requiredPattern}})</span>
+
+    </span>
