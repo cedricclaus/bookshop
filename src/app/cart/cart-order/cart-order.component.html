@@ -8,45 +8,37 @@
 <form novalidate #form="ngForm" [class.submitted]="form.submitted">
   <fieldset>
     <legend>Identité</legend>
-    <p>
-      <label>Prenom : <input type="text" [(ngModel)]="data.identity.firstName" name="firstName"> </label>
-    </p>
-    <p>
-      <label>Nom : <input type="text" [(ngModel)]="data.identity.lastName" name="lastName" required minlength="2" #controlLastName="ngModel"> </label>
-    <span class="error" *ngIf="controlLastName.invalid && (controlLastName.touched || form.submitted)">
-      <span *ngIf="controlLastName.hasError('required')">Mandatory</span>
-      <span *ngIf="controlLastName.hasError('minlength')">pas assez long</span>
+    <app-control label="Prénom">
+      <input type="text" [(ngModel)]="data.identity.firstName" name="firstName">
+    </app-control>
+    <app-control label="Nom">
+      <input type="text" [(ngModel)]="data.identity.lastName" name="lastName" required minlength="2"
+             #controlLastName="ngModel">
+    </app-control>
+    <app-control label="Email">
+      <input type="email" [(ngModel)]="data.identity.email" name="email">
+    </app-control>
 
-    </span>
-    </p>
-    <p>
-      <label>email : <input type="email" [(ngModel)]="data.identity.email" name="email"> </label>
-    </p>
   </fieldset>
   <fieldset>
     <legend>Adresse de livraison</legend>
-    <p>
-      <label>Rue : <input type="text" [(ngModel)]="data.shipping.street" name="street"> </label>
-    </p>
-    <p>
-      <label>CP : <input type="text" [(ngModel)]="data.shipping.zipcode" name="zipcode" required pattern="[0-9]{4}" #controlZip="ngModel"> </label>
-      <span class="error" *ngIf="controlZip.invalid && (controlZip.touched || form.submitted)">
-      <span *ngIf="controlZip.hasError('required')">Mandatory</span>
-      <span *ngIf="controlZip.hasError('pattern')">pas bon format</span>
+    <app-control label="Rue"><input type="text" [(ngModel)]="data.shipping.street" name="street">
+    </app-control>
+    <app-control label="CP">
+      <input type="text" [(ngModel)]="data.shipping.zipcode" name="zipcode" required pattern="[0-9]{4}"
+             #controlZip="ngModel">
+    </app-control>
+    <app-control label="Ville">
+      <input type="text" [(ngModel)]="data.shipping.city" name="city" required #controlCity="ngModel">
+    </app-control>
+    <app-control label="Pays">
+      <input type="text" [(ngModel)]="data.identity.country" name="country">
+    </app-control>
 
-    </span>
-    </p>
-    <p>
-      <label>Ville : <input type="text" [(ngModel)]="data.shipping.city" name="city" required #controlCity="ngModel"> </label>
-      <span class="error" *ngIf="controlCity.invalid && (controlCity.touched || form.submitted)">
-      <span *ngIf="controlCity.hasError('required')">Mandatory</span>
-    </span>
-    </p>
-    <p>
-      <label>Pays <input type="text" [(ngModel)]="data.identity.country" name="country"> </label>
-    </p>
   </fieldset>
-  <p><button type="submit" [disabled]="form.invalid && form.submitted">Valider</button> </p>
+  <p>
+    <button type="submit" [disabled]="form.invalid && form.submitted">Valider</button>
+  </p>
 
 
 </form>
